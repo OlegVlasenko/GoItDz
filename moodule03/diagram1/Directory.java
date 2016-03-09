@@ -3,6 +3,7 @@ package com.goit.moodule03.diagram1;
 import java.util.List;
 
 public class Directory {
+
     public List<File> getFiles() {
         return files;
     }
@@ -11,6 +12,7 @@ public class Directory {
         this.files = files;
     }
 
-    List<File> files;
+    private List<File> files;
+
 
 }
