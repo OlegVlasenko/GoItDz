@@ -1,4 +1,4 @@
 package com.goit.moodule03.diagram2;
 
-public class Romashka extends Flower {
+public class Aster extends Flower {
 }

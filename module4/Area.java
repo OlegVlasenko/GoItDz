@@ -4,8 +4,10 @@ import java.math.*;
 
 public class Area {
 
+    static double constant = 0.5;
+
     public static double areaTriangle(double a, double ha){
-        return 0.5*a*ha;
+        return constant*a*ha;
     }
 
     public static double areaRectangle(double a, double b){

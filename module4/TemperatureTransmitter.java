@@ -1,11 +1,14 @@
 package module4;
 
 public class TemperatureTransmitter {
+    static double constantcelsiy = (double) 5/9;
+    static double constantfarangeyt = (double) 9/5;
+
     public static double farangeyt(double c){
-        return (9/5)*c+32;
+        return constantfarangeyt*c+32;
     }
 
     public static double celsiy(double f){
-        return (5/9)*f-32;
+        return constantcelsiy*(f-32);
     }
 }

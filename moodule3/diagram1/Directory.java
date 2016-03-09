@@ -1,18 +1,16 @@
 package com.goit.moodule03.diagram1;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class Directory {
 
-    public List<File> getFiles() {
+    public ArrayList<File> getFiles() {
         return files;
     }
 
-    public void setFiles(List<File> files) {
+    public void setFiles(ArrayList<File> files) {
         this.files = files;
     }
 
-    private List<File> files;
-
-
+    private ArrayList<File> files;
 }

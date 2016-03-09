@@ -1,11 +1,21 @@
 package com.goit.moodule03.diagram3;
 
 
+import java.util.ArrayList;
+
 public class Main {
     public static void main(String[] args){
-        Fortopiano fortopiano1;
-        Guitar guitar1;
-        Truba truba1;
-        MuzInstrument muzInstrument1;
+        Piano fortopiano1 = new Piano();
+        Guitar guitar1 = new Guitar();
+        Trumpet truba1 = new Trumpet();
+
+        ArrayList<MuzInstrument> muzInstruments = new ArrayList<>();
+
+        muzInstruments.add(fortopiano1);
+        muzInstruments.add(guitar1);
+        muzInstruments.add(truba1);
+
+        MuzShop muzShop = new MuzShop();
+        muzShop.setMuzInstruments(muzInstruments);
     }
 }
