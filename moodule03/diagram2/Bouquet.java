@@ -13,4 +13,9 @@ public class Bouquet {
         this.flowers = flowers;
     }
 
+    public Bouquet(ArrayList<Flower> flowers){
+
+    };
+
+
 }

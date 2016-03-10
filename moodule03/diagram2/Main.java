@@ -18,8 +18,6 @@ public class Main {
         flowers.add(tyulpan1);
         flowers.add(astra1);
 
-        Bouquet flowerBouquet = new Bouquet();
-
-
+        Bouquet flowerBouquet = new Bouquet(flowers);
     }
 }
