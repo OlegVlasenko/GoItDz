@@ -22,7 +22,7 @@ public class Main {
 
         for (MuzInstrument muzInstrument: muzInstruments
                 ) {
-            System.out.println(muzInstruments);
+            System.out.println(muzInstrument);
         }
     }
 }

@@ -22,7 +22,7 @@ public class Main {
 
         for (Flower flower: flowers
              ) {
-            System.out.println(flowers);
+            System.out.println(flower);
         }
     }
 }
