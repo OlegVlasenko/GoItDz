@@ -21,5 +21,10 @@ public class Main {
         System.out.println(audioFile1);
         System.out.println(imageFile1);
         System.out.println(textFile1);
+
+        for (File file: files
+             ) {
+            System.out.println(files);
+        }
     }
 }

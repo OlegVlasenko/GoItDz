@@ -3,9 +3,10 @@ import java.util.Scanner;
 
 public class Array {
     public static void main(String[] args){
-        int[] array = new int[5];
-
         Scanner scanner = new Scanner(System.in);
+
+
+        int[] array = new int[5];
 
         System.out.println("Введите массив целых числе из 5 элементов:");
 

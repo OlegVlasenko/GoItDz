@@ -1,6 +1,8 @@
 package com.goit.moodule03.diagram3;
 
 
+import com.goit.moodule03.diagram1.File;
+
 import java.util.ArrayList;
 
 public class Main {
@@ -17,5 +19,10 @@ public class Main {
 
         MuzShop muzShop = new MuzShop();
         muzShop.setMuzInstruments(muzInstruments);
+
+        for (MuzInstrument muzInstrument: muzInstruments
+                ) {
+            System.out.println(muzInstruments);
+        }
     }
 }
