@@ -19,5 +19,10 @@ public class Main {
         flowers.add(astra1);
 
         Bouquet flowerBouquet = new Bouquet(flowers);
+
+        for (Flower flower: flowers
+             ) {
+            System.out.println(flowers);
+        }
     }
 }
