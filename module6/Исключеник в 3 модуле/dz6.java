@@ -83,8 +83,8 @@ class Runner {
         System.out.println(shop);
 
         Map<String, Integer> order = new HashMap<>();
-        order.put("dog", 45);
-        order.put("cat", 34);
+        order.put("guitar", 45);
+        order.put("piano", 29);
         order.put("trumblet", 10);
 
         List<MuzInstrument> guitarToRemove = prepareOrder(shop, order);
