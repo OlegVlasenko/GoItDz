@@ -65,7 +65,7 @@ class MuzShop {
 
     @Override
     public String toString() {
-        return "PetShop{" +
+        return "MuzShop{" +
                 "Guitar=" + guitars +
                 ", Piano=" + pianos + ", Trumblet=" + trumblets +
                 '}';
