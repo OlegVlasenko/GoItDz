@@ -6,7 +6,7 @@ abstract class MuzInstrument{
 
     @Override
     public String toString() {
-        return "Muzinstrument{"+getType()+"}";
+        return "MuzInstrument{"+getType()+"}";
     }
 }
 
@@ -14,7 +14,14 @@ class Guitar extends MuzInstrument{
 
     @Override
     public String getType() {
-        return "Guitar";
+        return "guitar";
+    }
+}
+
+class Trumblet extends MuzInstrument{
+    @Override
+    public String getType(){
+        return "trumblet";
     }
 }
 
@@ -22,105 +29,102 @@ class Piano extends MuzInstrument{
 
     @Override
     public String getType() {
-        return "Piano";
-    }
-}
-
-class Trumblet extends MuzInstrument{
-
-    @Override
-    public  String getType() {
-        return "Trumblet";
+        return "piano";
     }
 }
 
 class MuzShop {
-    int guitars;
-    int pianos;
-    int trumblets;
+    List<MuzInstrument> muzInstruments;
 
-    public int getPianos() {
-        return pianos;
+    public List<MuzInstrument> getMuzInstruments() {
+        return muzInstruments;
     }
 
-    public int getTrumblets() {
-        return trumblets;
-    }
-
-    public void setTrumblets(int trumblets){
-        this.trumblets = trumblets;
-    }
-
-    public void setPianos(int pianos) {
-        this.pianos = pianos;
-    }
-
-    public int getGuitars() {
-        return guitars;
-    }
-
-    public void setGuitars(int guitars) {
-        this.guitars = guitars;
+    public void setMuzInstruments(List<MuzInstrument> muzInstruments) {
+        this.muzInstruments = muzInstruments;
     }
 
     @Override
     public String toString() {
         return "MuzShop{" +
-                "Guitar=" + guitars +
-                ", Piano=" + pianos + ", Trumblet=" + trumblets +
+                "muzInstruments=" + muzInstruments +
                 '}';
     }
 }
 
-class Runner {
+class Main {
 
     public static void main(String[] args) {
         MuzShop shop = new MuzShop();
-        shop.setGuitars(50);
-        shop.setPianos(30);
-        shop.setTrumblets(20);
 
-        System.out.println(shop);
+
+        ArrayList<MuzInstrument> muzInstruments = new ArrayList<>();
+        for (int i = 0; i < 5; i++) {
+            muzInstruments.add(new Guitar());
+        }
+        for (int i = 0; i < 4; i++) {
+            muzInstruments.add(new Piano());
+        }
+        for (int i = 0; i < 7; i++) {
+            muzInstruments.add(new Trumblet());
+        }
+        shop.setMuzInstruments(muzInstruments);
+
 
         Map<String, Integer> order = new HashMap<>();
-        order.put("guitar", 45);
-        order.put("piano", 29);
-        order.put("trumblet", 10);
+        order.put("guitar", 2);
+        order.put("piano", 3);
+        order.put("trumblet", 4);
 
-        List<MuzInstrument> guitarToRemove = prepareOrder(shop, order);
-        System.out.println("removed guitar: " + guitarToRemove.size());
 
         System.out.println(shop);
 
+        try {
+            List<MuzInstrument> animalsToBeRemoved = prepareListOfMuzInstrumentsToRemove(shop, order);
+            removeAnimalsFromTheShop(shop, order);
+            System.out.println("Order: "+animalsToBeRemoved);
+        } catch (Exception e) {
+            System.out.println("Exception happened: "+e.getMessage());
+        }
 
+        System.out.println(shop);
 
     }
 
-    private static List<MuzInstrument> prepareOrder(MuzShop shop, Map<String, Integer> order) {
-        int numberOfGuitarsToRemove = order.get("guitar");
-        int numberOfPianosToRemove = order.get("piano");
-        int numberOfTrumbletsToRemove = order.get("trumblet");
-
-        if (shop.getGuitars() < numberOfGuitarsToRemove) throw new IllegalStateException();
-        if (shop.getPianos() < numberOfPianosToRemove) throw new IllegalStateException();
-        if (shop.getTrumblets() < numberOfTrumbletsToRemove) throw new IllegalStateException();
-
-        shop.setGuitars(shop.getGuitars() - numberOfGuitarsToRemove);
-        shop.setPianos(shop.getPianos() - numberOfPianosToRemove);
-        shop.setTrumblets(shop.getTrumblets() - numberOfTrumbletsToRemove);
-
+    private static List<MuzInstrument> prepareListOfMuzInstrumentsToRemove(MuzShop petShop, Map<String, Integer> order) {
         List<MuzInstrument> result = new ArrayList<>();
-        for (int i = 0; i < numberOfGuitarsToRemove; i++) {
-            result.add(new Guitar());
+
+        for (Map.Entry<String, Integer> orderEntry : order.entrySet()) {
+            String muzInstrumentType = orderEntry.getKey();
+            Integer numberOfMuzInstrumentToBeRemoved = orderEntry.getValue();
+            int numberOfMuzInstrumentsToBeRemoved = 0;
+            for (MuzInstrument muzInstrument : petShop.getMuzInstruments()) {
+                if (muzInstrument.getType().equals(muzInstrumentType) && numberOfMuzInstrumentsToBeRemoved<numberOfMuzInstrumentToBeRemoved) {
+                    result.add(muzInstrument);
+                    numberOfMuzInstrumentsToBeRemoved++;
+                }
+            }
+            if(numberOfMuzInstrumentsToBeRemoved<numberOfMuzInstrumentToBeRemoved)
+                throw new IllegalArgumentException("Shop does not have enough " + muzInstrumentType+"s");
         }
-        for (int i = 0; i < numberOfPianosToRemove; i++) {
-            result.add(new Piano());
-        }
-        for (int i = 0; i < numberOfTrumbletsToRemove; i++){
-            result.add(new Trumblet());
-        }
+
         return result;
     }
 
+    private static void removeAnimalsFromTheShop(MuzShop muzShop, Map<String, Integer> order){
+        for (Map.Entry<String, Integer> orderEntry : order.entrySet()) {
+            String muzInstrumentType = orderEntry.getKey();
+            Integer numberOfMuzInstrumentToBeRemoved = orderEntry.getValue();
+            int numberOfMuzInstrumentsRemoved = 0;
+            Iterator<MuzInstrument> iterator = muzShop.getMuzInstruments().iterator();
+            while (iterator.hasNext()) {
+                MuzInstrument muzInstrument = iterator.next();
+                if (muzInstrument.getType().equals(muzInstrumentType) && numberOfMuzInstrumentsRemoved<numberOfMuzInstrumentToBeRemoved) {
+                    iterator.remove();
+                    numberOfMuzInstrumentsRemoved++;
+                }
+            }
+        }
+    }
 
 }

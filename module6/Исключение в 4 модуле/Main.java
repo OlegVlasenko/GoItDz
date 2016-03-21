@@ -1,5 +1,6 @@
 package module4;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
@@ -12,14 +13,15 @@ public class Main {
         System.out.println(TemperatureTransmitter.farangeyt(20));
         System.out.println(TemperatureTransmitter.celsiy(25));
 
-        System.out.print("Введите длинну стороны треугольника: ");
-        double a = scanner.nextDouble();
-        System.out.print("Введите высоту треугольника: ");
-        double ah = scanner.nextDouble();
-        if (Area.areaTriangle(a, ah) > 0){
+        try {
+            System.out.print("Введите длинну стороны треугольника: ");
+            double a = scanner.nextDouble();
+            System.out.print("Введите высоту треугольника: ");
+            double ah = scanner.nextDouble();
             System.out.println("Площадь треугольника: " + Area.areaTriangle(a, ah));
-        }else {
-            throw new IllegalArgumentException("Площадь треугольника не может быть меньше 0");
+        }catch (IllegalArgumentException e){
+            System.out.print("Неверный формат ввода");
         }
+
     }
 }

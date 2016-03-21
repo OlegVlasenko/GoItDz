@@ -7,23 +7,26 @@ public class Array {
 
         System.out.print("Введите длинну массива: ");
 
-        int length = scanner.nextInt();
+        try {
 
-        if (length <= 0) {
-            throw new IllegalArgumentException("Длинна массива не может быть отрецательной");
+
+            int length = scanner.nextInt();
+
+            int[] array = new int[length];
+
+            System.out.println("Введите массив целых числе из " + length + " элементов:");
+
+            for (int i = 0; i <= array.length - 1; i++) {
+                array[i] = scanner.nextInt();
+            }
+
+            System.out.println("Максимальное число: " + max(array));
+            System.out.println("Минимальное число: " + min(array));
+            System.out.println("Отсортированый массив: " + Arrays.toString(sorting(array)));
+
+        }catch (IllegalArgumentException e){
+            System.out.println("Неверный формат ввода");
         }
-
-        int[] array = new int[length];
-
-        System.out.println("Введите массив целых числе из " + length + " элементов:");
-
-        for (int i = 0; i <= array.length - 1; i++){
-            array[i] = scanner.nextInt();
-        }
-
-        System.out.println("Максимальное число: " + max(array));
-        System.out.println("Минимальное число: " + min(array));
-        System.out.println("Отсортированый массив: " + Arrays.toString(sorting(array)));
     }
 
     public static int max(int[] array){
