@@ -15,13 +15,16 @@ public class Main {
 
         try {
             System.out.print("Введите длинну стороны треугольника: ");
-            double a = scanner.nextDouble();
+            String aString = scanner.next();
             System.out.print("Введите высоту треугольника: ");
-            double ah = scanner.nextDouble();
+            String ahString = scanner.next();
+            double a = Double.parseDouble(aString);
+            double ah = Double.parseDouble(ahString);
             System.out.println("Площадь треугольника: " + Area.areaTriangle(a, ah));
-        }catch (IllegalArgumentException e){
-            System.out.print("Неверный формат ввода");
+        }catch (NumberFormatException e){
+            System.out.print("Надо вводить числа");
         }
+
 
     }
 }

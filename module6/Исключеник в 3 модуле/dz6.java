@@ -1,7 +1,7 @@
 import java.util.*;
 
 
-abstract class MuzInstrument{
+abstract class MusicInstrument{
     public abstract String getType();
 
     @Override
@@ -10,7 +10,7 @@ abstract class MuzInstrument{
     }
 }
 
-class Guitar extends MuzInstrument{
+class Guitar extends MusicInstrument{
 
     @Override
     public String getType() {
@@ -18,14 +18,14 @@ class Guitar extends MuzInstrument{
     }
 }
 
-class Trumblet extends MuzInstrument{
+class Trumblet extends MusicInstrument{
     @Override
     public String getType(){
         return "trumblet";
     }
 }
 
-class Piano extends MuzInstrument{
+class Piano extends MusicInstrument{
 
     @Override
     public String getType() {
@@ -33,21 +33,21 @@ class Piano extends MuzInstrument{
     }
 }
 
-class MuzShop {
-    List<MuzInstrument> muzInstruments;
+class MusicShop {
+    private List<MusicInstrument> musicInstruments;
 
-    public List<MuzInstrument> getMuzInstruments() {
-        return muzInstruments;
+    public List<MusicInstrument> getMusicInstruments() {
+        return musicInstruments;
     }
 
-    public void setMuzInstruments(List<MuzInstrument> muzInstruments) {
-        this.muzInstruments = muzInstruments;
+    public void setMusicInstruments(List<MusicInstrument> musicInstruments) {
+        this.musicInstruments = musicInstruments;
     }
 
     @Override
     public String toString() {
-        return "MuzShop{" +
-                "muzInstruments=" + muzInstruments +
+        return "MusicShop{" +
+                "musicInstruments=" + musicInstruments +
                 '}';
     }
 }
@@ -55,20 +55,20 @@ class MuzShop {
 class Main {
 
     public static void main(String[] args) {
-        MuzShop shop = new MuzShop();
+        MusicShop shop = new MusicShop();
 
 
-        ArrayList<MuzInstrument> muzInstruments = new ArrayList<>();
+        ArrayList<MusicInstrument> musicInstruments = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
-            muzInstruments.add(new Guitar());
+            musicInstruments.add(new Guitar());
         }
         for (int i = 0; i < 4; i++) {
-            muzInstruments.add(new Piano());
+            musicInstruments.add(new Piano());
         }
         for (int i = 0; i < 7; i++) {
-            muzInstruments.add(new Trumblet());
+            musicInstruments.add(new Trumblet());
         }
-        shop.setMuzInstruments(muzInstruments);
+        shop.setMusicInstruments(musicInstruments);
 
 
         Map<String, Integer> order = new HashMap<>();
@@ -80,9 +80,9 @@ class Main {
         System.out.println(shop);
 
         try {
-            List<MuzInstrument> animalsToBeRemoved = prepareListOfMuzInstrumentsToRemove(shop, order);
-            removeAnimalsFromTheShop(shop, order);
-            System.out.println("Order: "+animalsToBeRemoved);
+            List<MusicInstrument> muzInstrumentsToBeRemoved = prepareListOfMuzInstrumentsToRemove(shop, order);
+            removeMuzInstrumentsFromTheShop(shop, order);
+            System.out.println("Order: "+muzInstrumentsToBeRemoved);
         } catch (Exception e) {
             System.out.println("Exception happened: "+e.getMessage());
         }
@@ -91,14 +91,14 @@ class Main {
 
     }
 
-    private static List<MuzInstrument> prepareListOfMuzInstrumentsToRemove(MuzShop petShop, Map<String, Integer> order) {
-        List<MuzInstrument> result = new ArrayList<>();
+    private static List<MusicInstrument> prepareListOfMuzInstrumentsToRemove(MusicShop musicShop, Map<String, Integer> order) {
+        List<MusicInstrument> result = new ArrayList<>();
 
         for (Map.Entry<String, Integer> orderEntry : order.entrySet()) {
             String muzInstrumentType = orderEntry.getKey();
             Integer numberOfMuzInstrumentToBeRemoved = orderEntry.getValue();
             int numberOfMuzInstrumentsToBeRemoved = 0;
-            for (MuzInstrument muzInstrument : petShop.getMuzInstruments()) {
+            for (MusicInstrument muzInstrument : musicShop.getMusicInstruments()) {
                 if (muzInstrument.getType().equals(muzInstrumentType) && numberOfMuzInstrumentsToBeRemoved<numberOfMuzInstrumentToBeRemoved) {
                     result.add(muzInstrument);
                     numberOfMuzInstrumentsToBeRemoved++;
@@ -111,14 +111,14 @@ class Main {
         return result;
     }
 
-    private static void removeAnimalsFromTheShop(MuzShop muzShop, Map<String, Integer> order){
+    private static void removeMuzInstrumentsFromTheShop(MusicShop muzShop, Map<String, Integer> order){
         for (Map.Entry<String, Integer> orderEntry : order.entrySet()) {
             String muzInstrumentType = orderEntry.getKey();
             Integer numberOfMuzInstrumentToBeRemoved = orderEntry.getValue();
             int numberOfMuzInstrumentsRemoved = 0;
-            Iterator<MuzInstrument> iterator = muzShop.getMuzInstruments().iterator();
+            Iterator<MusicInstrument> iterator = muzShop.getMusicInstruments().iterator();
             while (iterator.hasNext()) {
-                MuzInstrument muzInstrument = iterator.next();
+                MusicInstrument muzInstrument = iterator.next();
                 if (muzInstrument.getType().equals(muzInstrumentType) && numberOfMuzInstrumentsRemoved<numberOfMuzInstrumentToBeRemoved) {
                     iterator.remove();
                     numberOfMuzInstrumentsRemoved++;
