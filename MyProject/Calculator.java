@@ -8,7 +8,7 @@ public class Calculator {
             double a = Double.parseDouble(aString);
             Runner.run(a);
         }catch (NumberFormatException e){
-            System.out.println("Неверный ввод числа");
+            System.err.println("Неверный ввод числа");
         }
     }
 }
