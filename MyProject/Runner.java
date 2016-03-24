@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class Runner {
-    public static void run(double a) {
+    public void run(double a) {
         Scanner scanner = new Scanner(System.in);
         while (true) {
             System.out.print("Введите операцию(+, -, /, *): ");
@@ -18,7 +18,7 @@ public class Runner {
             System.out.println(a);
         }
     }
-    private static double operation(String comand, double a){
+    private double operation(String comand, double a){
         String bString;
         double b;
         Scanner scanner = new Scanner(System.in);

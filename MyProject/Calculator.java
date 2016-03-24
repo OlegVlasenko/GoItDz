@@ -6,7 +6,8 @@ public class Calculator {
             System.out.print("Введите число: ");
             String aString = scanner.next();
             double a = Double.parseDouble(aString);
-            Runner.run(a);
+            Runner runner = new Runner();
+            runner.run(a);
         }catch (NumberFormatException e){
             System.err.println("Неверный ввод числа");
         }
