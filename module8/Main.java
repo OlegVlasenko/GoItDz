@@ -1,17 +1,13 @@
 import java.util.ArrayList;
+import java.util.Comparator;
 
 public class Main {
     public static void main(String[] args) {
-        Flower rose = new Flower("Rose", "red", 200);
-        Flower astra = new Flower("Astra", "white", 150);
-        Flower tulip = new Flower("Tulip", "Yellow", 300);
         ArrayList<Flower> flowers = new ArrayList<>();
-        flowers.add(rose);
-        flowers.add(astra);
-        flowers.add(tulip);
-        for (Flower flower: flowers
-             ) {
-            System.out.println("Type: " + flower.type + " Color: " + flower.color + " Price: " + flower.price);
-        }
+        flowers.add(new Rose("red", 200));
+        flowers.add(new Aster("white", 150));
+        flowers.add(new Tulip("yellow", 300));
+        flowers.sort(Comparator.comparing(Flower::getPrice));
+        PrintCollections.printCollections(flowers);
     }
 }
