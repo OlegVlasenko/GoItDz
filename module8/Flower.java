@@ -1,7 +1,7 @@
-public class Flower {
+public abstract class Flower {
     String type;
     String color;
-    int price;
+    Integer price;
 
     public String getType() {
         return type;
@@ -11,7 +11,7 @@ public class Flower {
         return color;
     }
 
-    public int getPrice() {
+    public Integer getPrice() {
         return price;
     }
 }
