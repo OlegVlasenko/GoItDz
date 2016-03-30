@@ -9,10 +9,10 @@ public class Main {
         flowers.add(new Tulip("yellow", 300));
         PrintCollections.printCollections(flowers);
 
-        TreeSet<String> sortFlowers = new TreeSet<>();
-        sortFlowers.add("Rose");
-        sortFlowers.add("Tulip");
-        sortFlowers.add("Aster");
-        System.out.println(sortFlowers);
+        TreeSet<Flower> sortFlowers = new TreeSet<>();
+        sortFlowers.add(new Rose("red", 200));
+        sortFlowers.add(new Aster("white", 150));
+        sortFlowers.add(new Tulip("yellow", 300));
+        PrintCollections.printCollections(sortFlowers);
     }
 }

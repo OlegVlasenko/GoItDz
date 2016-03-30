@@ -1,4 +1,4 @@
-public abstract class Flower {
+public class Flower implements Comparable<Flower>{
     String type;
     String color;
     Integer price;
@@ -13,5 +13,11 @@ public abstract class Flower {
 
     public Integer getPrice() {
         return price;
+    }
+
+    @Override
+    public int compareTo(Flower o) {
+        int compareQuality = ((Flower) o).getPrice();
+        return this.getPrice() - compareQuality;
     }
 }
