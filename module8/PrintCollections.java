@@ -1,15 +1,7 @@
-import java.util.ArrayList;
-import java.util.TreeSet;
+import java.util.Collection;
 
 public class PrintCollections {
-    public static void printCollections(ArrayList<Flower> flowers){
-        System.out.println("Type           Color          Price\n_____________________________________");
-        for (Flower flower: flowers
-                ) {
-            System.out.println(flower.getType() + "          " + flower.getColor() + "            " + flower.getPrice());
-        }
-    }
-    public static void printCollections(TreeSet<Flower> flowers){
+    public static void printCollections(Collection<Flower> flowers){
         System.out.println("Type           Color          Price\n_____________________________________");
         for (Flower flower: flowers
                 ) {
