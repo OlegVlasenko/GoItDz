@@ -15,9 +15,6 @@ public class TestDistanceModule4 {
         double x2 = 2;
         double y2 = -2;
 
-        double expectResult = 2;
-        double result = distance.distance(x1, y1, x2, y2);
-
-        Assert.assertEquals(expectResult, result);
+        Assert.assertEquals(2, distance.distance(x1, y1, x2, y2));
     }
 }

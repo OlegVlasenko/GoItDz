@@ -16,21 +16,15 @@ public class TestModule9 {
     public void testEncriptionMessage() throws Exception{
         String message = "My name is Alexey";
         int key = 1;
-        String expectResult = "Nz obnf jt Bmfyfz";
 
-        String result = decoder.encriptionMessage(message, key).toString();
-
-        Assert.assertEquals(expectResult, result);
+        Assert.assertEquals("Nz obnf jt Bmfyfz", decoder.encriptionMessage(message, key).toString());
     }
 
     @Test(timeout = 1000)
     public void testDecryptionMessage() throws Exception{
         String message = "Nz obnf jt Bmfyfz";
         int key = 1;
-        String expectResult = "My name is Alexey";
 
-        String result = decoder.decriptionMessage(message, key).toString();
-
-        Assert.assertEquals(expectResult, result);
+        Assert.assertEquals("My name is Alexey", decoder.decriptionMessage(message, key).toString());
     }
 }

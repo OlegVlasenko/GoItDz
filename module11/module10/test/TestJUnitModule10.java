@@ -13,10 +13,8 @@ public class TestJUnitModule10 {
         String text = "Hello, world!";
         int key = 3;
         text = decoder.encriptionMessage(text, key).toString();
-        String expectResult = "Khoor, zruog!\n";
         WorkWithFiles.write(fileName, text);
-        String result = WorkWithFiles.read(fileName).toString();
 
-        Assert.assertEquals(expectResult, result);
+        Assert.assertEquals("Khoor, zruog!\n", WorkWithFiles.read(fileName).toString());
     }
 }

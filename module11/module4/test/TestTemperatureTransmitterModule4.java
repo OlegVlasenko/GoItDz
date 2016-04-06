@@ -11,10 +11,7 @@ public class TestTemperatureTransmitterModule4 {
         double constantcelsiy = (double) 5/9;
         double farangeyt = 100;
 
-        double expendResult = constantcelsiy*(farangeyt-constant);
-        double result = TemperatureTransmitter.farangeyt(farangeyt);
-
-        Assert.assertEquals(expendResult, result);
+        Assert.assertEquals(constantcelsiy*(farangeyt-constant), TemperatureTransmitter.farangeyt(farangeyt));
     }
 
     @Test(timeout = 1000)
@@ -23,9 +20,6 @@ public class TestTemperatureTransmitterModule4 {
         double constantfarangeyt = (double) 9/5;
         double celsiy = 100;
 
-        double expendResult = constantfarangeyt*celsiy+constant;
-        double result = TemperatureTransmitter.celsiy(celsiy);
-
-        Assert.assertEquals(expendResult, result);
+        Assert.assertEquals(constantfarangeyt*celsiy+constant, TemperatureTransmitter.celsiy(celsiy));
     }
 }

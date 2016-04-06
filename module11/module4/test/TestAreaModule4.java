@@ -18,10 +18,7 @@ public class TestAreaModule4 {
         final double a = 3;
         final double ha = 5;
 
-        final double expectResult = 0.5 * a * ha;
-        final double result = area.areaTriangle(a, ha);
-
-        Assert.assertEquals(expectResult, result);
+        Assert.assertEquals(0.5 * a * ha, area.areaTriangle(a, ha));
     }
 
     @Test(timeout = 1000)
@@ -29,19 +26,13 @@ public class TestAreaModule4 {
         final double a = 3;
         final double b = 5;
 
-        final double expectResult = a * b;
-        final double result = area.areaRectangle(a, b);
-
-        Assert.assertEquals(expectResult, result);
+        Assert.assertEquals(a * b, area.areaRectangle(a, b));
     }
 
     @Test(timeout = 1000)
     public void testAreaCircle() throws Exception{
         final double r = 3;
 
-        final double expectResult = Math.PI * Math.pow(r, 2);
-        final double result = area.areaCircle(r);
-
-        Assert.assertEquals(expectResult, result);
+        Assert.assertEquals(Math.PI * Math.pow(r, 2), area.areaCircle(r));
     }
 }

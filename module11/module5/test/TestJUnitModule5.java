@@ -9,25 +9,19 @@ public class TestJUnitModule5 {
 
     @Test(timeout = 1000)
     public void testMinArray() throws Exception {
-        int expectResult = 1;
-        int result = Array.min(array);
 
-        Assert.assertEquals(expectResult, result);
+        Assert.assertEquals(1, Array.min(array));
     }
 
     @Test(timeout = 1000)
     public void testMaxArray() throws Exception {
-        int expectResult = 12;
-        int result = Array.max(array);
 
-        Assert.assertEquals(expectResult, result);
+        Assert.assertEquals(12, Array.max(array));
     }
 
     @Test(timeout = 1000)
     public void testSortingArray() throws Exception {
-        int[] expectResult = {1, 2, 4, 5, 12};
-        int[] result = Array.sorting(array);
 
-        Assert.assertArrayEquals(expectResult, result);
+        Assert.assertArrayEquals(new int[]{1, 2, 4, 5, 12}, Array.sorting(array));
     }
 }
