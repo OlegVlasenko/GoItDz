@@ -1,20 +1,21 @@
 public class Binary {
     public String convertToBinary(String number){
-        int numberInt = Integer.parseInt(number);
         StringBuilder binaryString = new StringBuilder();
-        binaryString.append("");
-        while (numberInt != 0){
-            if (numberInt % 2 == 1){
-                binaryString.append("1");
-            }else {
-                binaryString.append("0");
+        try {
+            int numberInt = Integer.parseInt(number);
+            binaryString.append("");
+            while (numberInt != 0) {
+                binaryString.append(Integer.toString(numberInt % 2));
+                numberInt = numberInt / 2;
             }
-            numberInt = numberInt / 2;
+        }catch (NumberFormatException e){
+            System.err.println("Enter the number");
         }
+
         return binaryString.reverse().toString();
     }
 
-    public int convertToDecimal(String binary){
+    public String convertToDecimal(String binary){
         StringBuilder binaryString = new StringBuilder();
         binaryString.append(binary);
         binary = binaryString.reverse().toString();
@@ -22,6 +23,6 @@ public class Binary {
         for (int i = 0; i < binary.length(); i++){
             decimal += Math.pow(2, i) * (Character.getNumericValue(binary.charAt(i)));
         }
-        return decimal;
+        return Integer.toString(decimal);
     }
 }

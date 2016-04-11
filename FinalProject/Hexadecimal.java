@@ -1,40 +1,45 @@
 public class Hexadecimal {
     public String convertToHexadecimal(String number){
-        int numberInt = Integer.parseInt(number);
         StringBuilder hexadecimalString = new StringBuilder();
-        hexadecimalString.append("");
-        int value;
-        while (numberInt > 0){
-            value = numberInt % 16;
-            numberInt = numberInt / 16;
-            switch (value){
-                case 10:
-                    hexadecimalString.append('A');
-                    break;
-                case 11:
-                    hexadecimalString.append('B');
-                    break;
-                case 12:
-                    hexadecimalString.append('C');
-                    break;
-                case 13:
-                    hexadecimalString.append('D');
-                    break;
-                case 14:
-                    hexadecimalString.append('E');
-                    break;
-                case 15:
-                    hexadecimalString.append('F');
-                    break;
-                default:
-                    hexadecimalString.append(Integer.toString(value));
-                    break;
+        try{
+            int numberInt = Integer.parseInt(number);
+            hexadecimalString.append("");
+            int value;
+            while (numberInt > 0){
+                value = numberInt % 16;
+                numberInt = numberInt / 16;
+                switch (value){
+                    case 10:
+                        hexadecimalString.append('A');
+                        break;
+                    case 11:
+                        hexadecimalString.append('B');
+                        break;
+                    case 12:
+                        hexadecimalString.append('C');
+                        break;
+                    case 13:
+                        hexadecimalString.append('D');
+                        break;
+                    case 14:
+                        hexadecimalString.append('E');
+                        break;
+                    case 15:
+                        hexadecimalString.append('F');
+                        break;
+                    default:
+                        hexadecimalString.append(Integer.toString(value));
+                        break;
+                }
             }
+        }catch (NumberFormatException e){
+            System.out.println("Enter the number");
         }
         return hexadecimalString.reverse().toString();
     }
 
-    public int convertToDecimal(String hexadecimal){
+    public String convertToBinary(String hexadecimal){
+        Binary binary = new Binary();
         StringBuilder hexadecimalString = new StringBuilder();
         hexadecimalString.append(hexadecimal);
         hexadecimal = hexadecimalString.reverse().toString();
@@ -66,6 +71,6 @@ public class Hexadecimal {
             }
             decimal += Math.pow(16, i) * valueDecimal;
         }
-        return decimal;
+        return binary.convertToBinary(Integer.toString(decimal));
     }
 }

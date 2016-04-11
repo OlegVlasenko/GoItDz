@@ -1,16 +1,21 @@
 public class Octal {
     public String convertToOctal(String number){
-        int numberInt = Integer.parseInt(number);
         StringBuilder octalString = new StringBuilder();
-        octalString.append("");
-        while (numberInt != 0){
-            octalString.append(String.valueOf(numberInt % 8)); ;
-            numberInt = numberInt / 8;
+        try{
+            int numberInt = Integer.parseInt(number);
+            octalString.append("");
+            while (numberInt != 0){
+                octalString.append(String.valueOf(numberInt % 8)); ;
+                numberInt = numberInt / 8;
+            }
+        }catch (NumberFormatException e){
+            System.out.println("Enter the number");
         }
         return octalString.reverse().toString();
     }
 
-    public int convertToDecimal(String octal){
+    public String convertToBinary(String octal){
+        Binary binary = new Binary();
         StringBuilder octalString = new StringBuilder();
         octalString.append(octal);
         octal = octalString.reverse().toString();
@@ -18,6 +23,6 @@ public class Octal {
         for (int i = 0; i < octal.length(); i++){
             decimal += Math.pow(8, i) * (Character.getNumericValue(octal.charAt(i)));
         }
-        return decimal;
+        return binary.convertToBinary(Integer.toString(decimal));
     }
 }

@@ -1,6 +1,7 @@
 import org.junit.Assert;
 
 public class Test {
+
     @org.junit.Test(timeout = 1000)
     public void testConvertToBinary(){
         Binary binary = new Binary();
@@ -10,11 +11,11 @@ public class Test {
     }
 
     @org.junit.Test(timeout = 1000)
-    public void testConvertToDecimalForBinary(){
+    public void testConvertToDecimal(){
         Binary binary = new Binary();
-        String number = "101000100100001";
+        String number = "101000110101";
 
-        Assert.assertEquals(20769, binary.convertToDecimal(number));
+        Assert.assertEquals("2613", binary.convertToDecimal(number));
     }
 
     @org.junit.Test(timeout = 1000)
@@ -26,26 +27,26 @@ public class Test {
     }
 
     @org.junit.Test(timeout = 1000)
-    public void testConvertToDecimalForOctal(){
+    public void testConvertToBinaryFromOctal(){
         Octal octal = new Octal();
-        String number = "2347";
+        String number = "4453";
 
-        Assert.assertEquals(1255, octal.convertToDecimal(number));
+        Assert.assertEquals("100100101011", octal.convertToBinary(number));
     }
 
     @org.junit.Test(timeout = 1000)
     public void testConvertToHexadecimal(){
         Hexadecimal hexadecimal = new Hexadecimal();
-        String number = "3569";
+        String number = "3283982";
 
-        Assert.assertEquals("DF1", hexadecimal.convertToHexadecimal(number));
+        Assert.assertEquals("321C0E", hexadecimal.convertToHexadecimal(number));
     }
 
     @org.junit.Test(timeout = 1000)
-    public void testConvertToDecimalForHexadecimal(){
+    public void testConvertToBinaryFromHexadecimal(){
         Hexadecimal hexadecimal = new Hexadecimal();
-        String number = "DF14";
+        String number = "321C0E";
 
-        Assert.assertEquals(57108, hexadecimal.convertToDecimal(number));
+        Assert.assertEquals("1100100001110000001110", hexadecimal.convertToBinary(number));
     }
 }
